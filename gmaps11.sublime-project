@@ -1,0 +1,19 @@
+{
+  "folders":
+  [
+  {
+    "path": "src",
+    "name": "src",
+    "file_exclude_patterns": [
+    "*.gitignore", "*.project", "*.cproject"
+    ],
+    "folder_exclude_patterns": [
+    "build",
+    "Debug",
+    "Release",
+    ".git"
+    ".project"
+    ]
+  }
+  ]
+}
