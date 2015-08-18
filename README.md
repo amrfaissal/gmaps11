@@ -2,7 +2,7 @@ Google Maps API Web Services Client for C++11
 ------
 
 ## Introduction
-gmaps11 is a simple C++11 client library for [Google Maps API Web Services](https://developers.google.com/maps/documentation/webservices/)
+`gmaps11` is a simple C++11 client library for [Google Maps API Web Services](https://developers.google.com/maps/documentation/webservices/).
 
 ## Latest Stable Version
 The latest stable version of the gmaps11 library can be found at:
@@ -14,11 +14,10 @@ The latest stable version of the gmaps11 library can be found at:
 - [CMake v2.8 or better](http://www.cmake.org/)
 - A C++11 compiler (GCC 4.8+, clang)
 - [CURL](http://curl.haxx.se/) library
-- [curlcpp](https://github.com/AmrFaissal/curlcpp) C++ wrapper for CURL
+- [CURLcpp](https://github.com/AmrFaissal/curlcpp) C++ wrapper for CURL
 - [Boost library](http://www.boost.org) version 1.54.0+
 
-After downloading and extracting the source from a tarball to a directory.
-([see above][Latest Stable Version]), the commands to build gmaps11 on most systems are:
+After downloading and extracting the source from a tarball to a directory, the commands to build `gmaps11` on most systems are:
 
     mkdir build && cd build
     cmake ..
@@ -38,30 +37,32 @@ The [Google Directions API](https://developers.google.com/maps/documentation/dir
 
 `gmaps11` comes with a `DirectionsService` class to help you query the The [Google Directions API](https://developers.google.com/maps/documentation/directions/intro) :
 
-```
-   #include <gmaps11/directions.hpp>
-   #include <boost/scoped_ptr.hpp>
-   #include <iostream>
+```c_cpp
 
-   using namespace googlemaps;
+    #include <gmaps11/directions.hpp>
+    #include <boost/scoped_ptr.hpp>
+    #include <iostream>
 
-   auto main() -> int {
-   boost::scoped_ptr<DirectionsService> directions_service(new DirectionsService());
-   // Query the Google Maps Directions API
-   // *NOTE* 'waypoint_t' is a typdef for boost::variant which can be a
-   // string holding a name (city, place...) or a boost tuple holding lat and long
-   // of a position
-   std::string response = directions_service->query("Paris", boost::make_tuple(44.051682, 4.643433), "driving");
-   // Print the JSON response
-   std::cout << response << std::endl;
-  }
+    using namespace googlemaps;
+
+    auto main() -> int {
+        boost::scoped_ptr<DirectionsService> directions_service(new DirectionsService());
+        // Query the Google Maps Directions API
+        // *NOTE* 'waypoint_t' is a typdef for boost::variant which can be a
+        // string holding a name (city, place...) or a boost tuple holding lat and long
+        // of a position
+        std::string response = directions_service->query("Paris", boost::make_tuple(44.051682, 4.643433), "driving");
+        // Print the JSON response
+        std::cout << response << std::endl;
+    }
 
 ```
 
 ## Notes
 You can parse the JSON response using the JSON parser in `gmaps11/json/json11.hpp` header:
 
-```
+```c_cpp
+
     std::string err;
     json11::Json json_body = json11::Json::parse(response, err);
     if (err.empty()) { // JSON response is valid
@@ -69,8 +70,3 @@ You can parse the JSON response using the JSON parser in `gmaps11/json/json11.hp
     }
 
 ```
-
-
-
-
-
