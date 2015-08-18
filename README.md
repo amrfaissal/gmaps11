@@ -37,8 +37,7 @@ The [Google Directions API](https://developers.google.com/maps/documentation/dir
 
 `gmaps11` comes with a `DirectionsService` class to help you query the The [Google Directions API](https://developers.google.com/maps/documentation/directions/intro) :
 
-```c_cpp
-
+```cpp
     #include <gmaps11/directions.hpp>
     #include <boost/scoped_ptr.hpp>
     #include <iostream>
@@ -55,18 +54,15 @@ The [Google Directions API](https://developers.google.com/maps/documentation/dir
         // Print the JSON response
         std::cout << response << std::endl;
     }
-
 ```
 
 ## Notes
 You can parse the JSON response using the JSON parser in `gmaps11/json/json11.hpp` header:
 
-```c_cpp
-
+```cpp
     std::string err;
     json11::Json json_body = json11::Json::parse(response, err);
     if (err.empty()) { // JSON response is valid
         std::string __status__ = json_body["status"].string_value();
     }
-
 ```
