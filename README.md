@@ -1,16 +1,32 @@
-Google Maps API Web Services Client for C++11
-------
+# C++11 Client for Google Maps Web Services
 
-## Introduction
-`gmaps11` is a simple C++11 client library for [Google Maps API Web Services](https://developers.google.com/maps/documentation/webservices/).
+[![Build Status](https://travis-ci.org/amrfaissal/gmaps11.svg?branch=master)](https://travis-ci.org/amrfaissal/gmaps11)
+
+## Description
+
+This library brings the Google Maps API Web Services to your C++11 application.
+
+The C++11 Client for Google Maps Services is a C++11 Client library for the following Google Maps APIs:
+
+ - [Directions API]
+ - [Distance Matrix API]
+ - ~~Elevation API~~
+ - ~~Geocoding API~~
+ - ~~Time Zone API~~
+ - ~~Roads API~~
+ - ~~Places API~~
 
 ## Latest Stable Version
-The latest stable version of the gmaps11 library can be found at:
+
+The latest stable version of the library can be found at:
 - <https://github.com/amrfaissal/gmaps11/releases/latest>
 
 ## Getting started
+
 ### Building and Installing
-#### Dependencies :
+
+#### Dependencies
+
 - [CMake v2.8 or better](http://www.cmake.org/)
 - A C++11 compiler (GCC 4.8+, clang)
 - [CURL](http://curl.haxx.se/) library
@@ -31,11 +47,16 @@ Installing the library and optionally specifying a prefix can be done with:
 More information on CMake can be found on its [FAQ](http://www.cmake.org/Wiki/CMake_FAQ).
 
 ## Examples
-Before we dive into examples, please make sure you have a `gmaps11.config` configuration file in the root of your project. `gmaps11.config` is JSON configuration file used by all the Google Maps services in the library.
+
+Before we dive into examples, please make sure you have a `gmaps11.config` configuration file in the root of your project.
+
+> `gmaps11.config` is JSON configuration file used by the C++11 client.
+
 ### Google Directions API
+
 The [Google Directions API](https://developers.google.com/maps/documentation/directions/intro) is a service that calculates directions between locations using an HTTP request.
 
-`gmaps11` comes with a `DirectionsService` class to help you query the The [Google Directions API](https://developers.google.com/maps/documentation/directions/intro) :
+`gmaps11` comes with a `DirectionsService` class to help you query The [Google Directions API]:
 
 ```cpp
     #include <gmaps11/directions.hpp>
@@ -57,6 +78,7 @@ The [Google Directions API](https://developers.google.com/maps/documentation/dir
 ```
 
 ## Notes
+
 You can parse the JSON response using the JSON parser in `gmaps11/json/json11.hpp` header:
 
 ```cpp
@@ -66,3 +88,14 @@ You can parse the JSON response using the JSON parser in `gmaps11/json/json11.hp
         std::string __status__ = json_body["status"].string_value();
     }
 ```
+
+## Contributing
+
+Bug reports, Pull requests and Stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/amrfaissal/gmaps11/issues/new).
+
+## License
+
+The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+[Directions API]: https://developers.google.com/maps/documentation/directions/
+[Distance Matrix API]: https://developers.google.com/maps/documentation/distancematrix/
